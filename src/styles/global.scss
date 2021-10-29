@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --black: #1c1c1c;
+}
+
 html {
   @media (max-width: 1080px) {
     font-size: 93.75%; // 15px
