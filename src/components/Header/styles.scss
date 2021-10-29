@@ -1,0 +1,11 @@
+#header {
+  background-color: #1c1c1c;
+  padding: 0.75rem 2rem;
+
+  .header {
+    &__logo-wrapper {
+      width: 7.5rem;
+      height: 2.25rem;
+    }
+  }
+}
