@@ -21,6 +21,8 @@
     &__table-wrapper {
       width: 100%;
 
+      overflow-x: scroll;
+
       &--table {
         border-collapse: collapse;
         width: 100%;
@@ -30,6 +32,7 @@
             background-color: var(--blue);
             color: #fff;
             text-align: center;
+            white-space: nowrap;
             padding: 1rem 2rem;
 
             &:first-child {
@@ -45,6 +48,7 @@
             background-color: #fff;
             color: var(--black);
             text-align: center;
+            white-space: nowrap;
             padding: 0.5rem 2rem;
             border-bottom: 1px solid var(--gray-300);
 
