@@ -12,6 +12,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
 
       &--input-wrapper {
         width: max(30%, 17.5rem);
@@ -20,6 +22,7 @@
 
     &__table-wrapper {
       width: 100%;
+      padding: 1px;
 
       overflow-x: scroll;
 
