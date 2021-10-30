@@ -1,0 +1,22 @@
+.input-text-component {
+  position: relative;
+
+  &__input {
+    height: 2.5rem;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+
+    &:focus {
+      border: 1.5px solid var(--gray-500);
+    }
+  }
+
+  &__icon-wrapper {
+    position: absolute;
+    top: 35%;
+    right: 0.5rem;
+    cursor: pointer;
+  }
+}
