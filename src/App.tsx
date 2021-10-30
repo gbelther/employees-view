@@ -56,34 +56,24 @@ const App = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  <img
-                    src="/images/avatar_generic.svg"
-                    alt="Avatar do usuário"
-                    width={32}
-                    height={32}
-                  />
-                </td>
-                <td>Rodrigo Mota</td>
-                <td>Front-end</td>
-                <td>00/00/0000</td>
-                <td>+55 (55) 55555-5555</td>
-              </tr>
-              <tr>
-                <td>
-                  <img
-                    src="/images/avatar_generic.svg"
-                    alt="Avatar do usuário"
-                    width={32}
-                    height={32}
-                  />
-                </td>
-                <td>Rodrigo Mota</td>
-                <td>Front-end</td>
-                <td>00/00/0000</td>
-                <td>+55 (55) 55555-5555</td>
-              </tr>
+              {employess.map(
+                ({ id, name, job, admissionDate, phone, image }) => (
+                  <tr key={id}>
+                    <td>
+                      <img
+                        src={image ?? "/images/avatar_generic.svg"}
+                        alt={`Avatar do usuário ${name}`}
+                        width={32}
+                        height={32}
+                      />
+                    </td>
+                    <td>{name}</td>
+                    <td>{job}</td>
+                    <td>{admissionDate}</td>
+                    <td>{phone}</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </section>
