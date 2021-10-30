@@ -12,6 +12,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      &--input-wrapper {
+        width: max(30%, 17.5rem);
+      }
     }
 
     &__table-wrapper {

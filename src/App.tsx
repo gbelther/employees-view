@@ -38,11 +38,13 @@ const App = () => {
       <main id="main-content">
         <section className="main-content__title-input-wrapper">
           <Heading>Funcionários</Heading>
-          <InputText
-            type="text"
-            placeholder="Pesquisar"
-            icon={<AiOutlineSearch />}
-          />
+          <div className="main-content__title-input-wrapper--input-wrapper">
+            <InputText
+              type="text"
+              placeholder="Pesquisar"
+              icon={<AiOutlineSearch />}
+            />
+          </div>
         </section>
         <section className="main-content__table-wrapper">
           <table className="main-content__table-wrapper--table">
