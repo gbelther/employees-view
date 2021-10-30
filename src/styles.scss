@@ -51,6 +51,10 @@
             &:last-child {
               border-right: 1px solid var(--gray-300);
             }
+
+            img {
+              border-radius: 50%;
+            }
           }
         }
       }
