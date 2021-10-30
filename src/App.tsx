@@ -1,11 +1,37 @@
+import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
+import { apiemployess } from "./services/api";
 import { Header, Heading, InputText } from "./components";
+import { useFormatEmployes } from "./hooks/useFormatEmployes";
+
+import { IGetEmployesData } from "./interfaces/apiEmployess/getEmployes";
+import { IEmployes } from "./interfaces/IEmployes";
 
 import "./styles/global.scss";
 import "./styles.scss";
 
 const App = () => {
+  const [employess, setEmployess] = useState<IEmployes[]>([]);
+
+  useEffect(() => {
+    const getEmployess = async () => {
+      try {
+        const response = await apiemployess.get("/");
+
+        setEmployess(
+          response.data.map((employes: IGetEmployesData) =>
+            useFormatEmployes(employes)
+          )
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getEmployess();
+  }, []);
+
   return (
     <>
       <Header />
