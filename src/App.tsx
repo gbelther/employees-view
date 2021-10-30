@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
 import { apiemployess } from "./services/api";
@@ -13,6 +13,7 @@ import "./styles.scss";
 
 const App = () => {
   const [employess, setEmployess] = useState<IEmployes[]>([]);
+  const [employessFiltered, setEmployessFiltered] = useState<IEmployes[]>([]);
 
   useEffect(() => {
     const getEmployess = async () => {
@@ -32,6 +33,24 @@ const App = () => {
     getEmployess();
   }, []);
 
+  useEffect(() => {
+    setEmployessFiltered(employess);
+  }, [employess]);
+
+  const handleFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    const textFilter = event.target.value.toLowerCase();
+
+    setEmployessFiltered(
+      employess.filter(
+        (employes) =>
+          employes.name.toLowerCase().includes(textFilter) ||
+          employes.job.toLowerCase().includes(textFilter) ||
+          employes.admissionDate.toLowerCase().includes(textFilter) ||
+          employes.phone.toLowerCase().includes(textFilter)
+      )
+    );
+  };
+
   return (
     <>
       <Header />
@@ -43,6 +62,7 @@ const App = () => {
               type="text"
               placeholder="Pesquisar"
               icon={<AiOutlineSearch />}
+              onChange={handleFilter}
             />
           </div>
         </section>
@@ -58,7 +78,7 @@ const App = () => {
               </tr>
             </thead>
             <tbody>
-              {employess.map(
+              {employessFiltered.map(
                 ({ id, name, job, admissionDate, phone, image }) => (
                   <tr key={id}>
                     <td>
