@@ -12,7 +12,12 @@ Este projeto consiste em exibir em uma tabela uma lista de usuários (employess)
 
 <h3>Como rodar o projeto em sua máquina</h3>
 
-Para rodar o projeto em sua máquina, utiliza a funcionalidade de clone do git, executando os seguintes comandos:
+Os pré-requisitos para rodar o projeto são:
+- NodeJs
+- Git
+- Yarn ou NPM (Este último vem instalado junto com o NodeJs)
+
+Possuindo as ferramentas anteriormente citadas, utilize a funcionalidade de clone do git, executando os seguintes comandos:
 - Clonar o repositório no seu computador:
 ```
 git clone https://github.com/gbelther/front-table.git
@@ -25,11 +30,11 @@ cd front-table
 ```
 yarn
 ```
-- Rodar o app:
+- Rodar o app em um terminal:
 ```
 yarn dev
 ```
-- Rodar o servidor do json-server:
+- Rodar o servidor do json-server em outro terminal:
 ```
 yarn server
 ```
