@@ -15,6 +15,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [employess, setEmployess] = useState<IEmployes[]>([]);
   const [employessFiltered, setEmployessFiltered] = useState<IEmployes[]>([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const getEmployess = async () => {
@@ -23,13 +24,13 @@ const App = () => {
       try {
         const response = await apiemployess.get("/");
 
-        setEmployess(
-          response.data.map((employes: IGetEmployesData) =>
-            useFormatEmployes(employes)
-          )
-        );
+        setEmployess(response.data);
       } catch (error) {
-        console.log(error);
+        if (error instanceof Error) {
+          setErrorMessage(`${error.name}: ${error.message}`);
+        } else {
+          setErrorMessage("Ocorreu um erro inesperado na requisição.");
+        }
       } finally {
         setIsLoading(false);
       }
@@ -75,6 +76,10 @@ const App = () => {
           {isLoading ? (
             <p className="main-content__table-wrapper--warning-text">
               Carregando...
+            </p>
+          ) : !!errorMessage ? (
+            <p className="main-content__table-wrapper--warning-text">
+              {errorMessage}
             </p>
           ) : employessFiltered.length === 0 ? (
             <p className="main-content__table-wrapper--warning-text">
