@@ -1,4 +1,4 @@
-<h2>FRONT-TABLE</h2>
+<h2>EMPLOYESS-VIEW</h2>
 
 Este projeto consiste em exibir em uma tabela uma lista de usuários (employess) vindo de um endpoint em que as informações dos usuários fiquem exibidos formatados de acordo com a sua grandeza (Foto, Nome, Cargo, Data de Admissão e Telefone).
 
@@ -20,11 +20,11 @@ Os pré-requisitos para rodar o projeto são:
 Possuindo as ferramentas anteriormente citadas, utilize a funcionalidade de clone do git, executando os seguintes comandos:
 - Clonar o repositório no seu computador:
 ```
-git clone https://github.com/gbelther/front-table.git
+git clone https://github.com/gbelther/employess-view.git
 ```
 - Entrar no repositório clonado:
 ```
-cd front-table
+cd employess-view
 ```
 - Instalar as dependências do projeto:
 ```
