@@ -12,11 +12,14 @@ import "./styles/global.scss";
 import "./styles.scss";
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [employess, setEmployess] = useState<IEmployes[]>([]);
   const [employessFiltered, setEmployessFiltered] = useState<IEmployes[]>([]);
 
   useEffect(() => {
     const getEmployess = async () => {
+      setIsLoading(true);
+
       try {
         const response = await apiemployess.get("/");
 
@@ -27,6 +30,8 @@ const App = () => {
         );
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -67,7 +72,11 @@ const App = () => {
           </div>
         </section>
         <section className="main-content__table-wrapper">
-          {employessFiltered.length === 0 ? (
+          {isLoading ? (
+            <p className="main-content__table-wrapper--warning-text">
+              Carregando...
+            </p>
+          ) : employessFiltered.length === 0 ? (
             <p className="main-content__table-wrapper--warning-text">
               Nenhum Funcionário Encontrado.
             </p>
