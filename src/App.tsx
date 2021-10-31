@@ -61,8 +61,6 @@ const App = () => {
     );
   };
 
-  console.log(employessFiltered);
-
   return (
     <>
       <Header />
