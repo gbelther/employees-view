@@ -24,7 +24,11 @@ const App = () => {
       try {
         const response = await apiemployess.get("/");
 
-        setEmployess(response.data);
+        setEmployess(
+          response.data.map((employes: IGetEmployesData) =>
+            useFormatEmployes(employes)
+          )
+        );
       } catch (error) {
         if (error instanceof Error) {
           setErrorMessage(`${error.name}: ${error.message}`);
@@ -56,6 +60,8 @@ const App = () => {
       )
     );
   };
+
+  console.log(employessFiltered);
 
   return (
     <>
