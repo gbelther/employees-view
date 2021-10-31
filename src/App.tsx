@@ -67,37 +67,43 @@ const App = () => {
           </div>
         </section>
         <section className="main-content__table-wrapper">
-          <table className="main-content__table-wrapper--table">
-            <thead>
-              <tr>
-                <th>FOTO</th>
-                <th>NOME</th>
-                <th>CARGO</th>
-                <th>DATA DE ADMISSÃO</th>
-                <th>TELEFONE</th>
-              </tr>
-            </thead>
-            <tbody>
-              {employessFiltered.map(
-                ({ id, name, job, admissionDate, phone, image }) => (
-                  <tr key={id}>
-                    <td>
-                      <img
-                        src={image ?? "/images/avatar_generic.svg"}
-                        alt={`Avatar do usuário ${name}`}
-                        width={32}
-                        height={32}
-                      />
-                    </td>
-                    <td>{name}</td>
-                    <td>{job}</td>
-                    <td>{admissionDate}</td>
-                    <td>{phone}</td>
-                  </tr>
-                )
-              )}
-            </tbody>
-          </table>
+          {employessFiltered.length === 0 ? (
+            <p className="main-content__table-wrapper--warning-text">
+              Nenhum Funcionário Encontrado.
+            </p>
+          ) : (
+            <table className="main-content__table-wrapper--table">
+              <thead>
+                <tr>
+                  <th>FOTO</th>
+                  <th>NOME</th>
+                  <th>CARGO</th>
+                  <th>DATA DE ADMISSÃO</th>
+                  <th>TELEFONE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {employessFiltered.map(
+                  ({ id, name, job, admissionDate, phone, image }) => (
+                    <tr key={id}>
+                      <td>
+                        <img
+                          src={image ?? "/images/avatar_generic.svg"}
+                          alt={`Avatar do usuário ${name}`}
+                          width={32}
+                          height={32}
+                        />
+                      </td>
+                      <td>{name}</td>
+                      <td>{job}</td>
+                      <td>{admissionDate}</td>
+                      <td>{phone}</td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+          )}
         </section>
       </main>
     </>
