@@ -30,13 +30,13 @@ cd front-table
 ```
 yarn
 ```
-- Rodar o app em um terminal:
-```
-yarn dev
-```
-- Rodar o servidor do json-server em outro terminal:
+- Rodar o servidor do json-server em um terminal:
 ```
 yarn server
+```
+- Rodar o app em outro terminal:
+```
+yarn dev
 ```
 
 <h3>Imagem do Projeto</h3>
